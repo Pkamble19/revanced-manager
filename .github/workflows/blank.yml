@@ -25,14 +25,14 @@ jobs:
         run: flutter packages pub run build_runner build --delete-conflicting-outputs
       - name: Build with Flutter
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
         run: flutter build apk --debug
       - name: Add version to APK
         run: mv build/app/outputs/flutter-apk/app-debug.apk build/app/outputs/flutter-apk/revanced-manager-latest.apk
       - name: Publish debug APK
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: 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
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
